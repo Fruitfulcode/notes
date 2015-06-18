@@ -1,0 +1,92 @@
+/*
+Theme Name: Fruitful Child
+Theme URI: http://themes.fruitfulcode.com/fruitful
+Author: fruitfulcode
+Author URI: http://fruitfulcode.com
+Description: child of Fruitful theme
+Template: fruitful
+Version: 0.1.0
+Text Domain: fruitful
+*/
+
+@import url("../fruitful/style.css");
+
+.nav-container {
+	background: #43ab24;
+}
+.main-navigation {
+	margin: 0;
+}
+
+.main-navigation li: {
+	background: #43ab24;
+	padding: 0 30px;
+	color: #fff;
+	text-align: center;
+}
+
+.main-navigation li {
+  margin: 0;
+}
+
+.main-navigation a {
+	background: #43ab24;
+    display:block;
+	color: #fff;
+	padding: 20px 30px;
+	font-size:17px;
+}
+
+.main-navigation ul ul a {
+    color:#fff;
+}
+
+.main-navigation ul li:hover > a {
+	background: #43ab24;
+    display:block;
+    text-decoration:none;
+    text-transform:uppercase;
+	padding: 20px 30px;
+	font-size:147x;
+}
+
+.main-navigation ul ul:hover > a {
+    color:#333 !important;
+    text-shadow:none !important;
+}
+.main-navigation ul li a:hover,
+.main-navigation ul ul li.current_page_item a,
+.main-navigation ul ul li.current-menu-item a,
+.main-navigation ul ul li.current-menu-parent a, 
+.main-navigation ul ul li.current-menu-ancestor a {
+	background: #43ab24;
+    display:block;
+    text-decoration:none;
+    text-transform:uppercase;
+	padding: 20px 30px;
+	box-shadow: inset 0px 2px 8px #3D8B18;
+}
+.main-navigation ul li:hover > ul {
+    margin:0;
+	opacity:1;
+	visibility:visible;
+}
+.main-navigation ul li.current_page_item a,
+.main-navigation ul li.current-menu-item a,
+.main-navigation ul li.current-menu-parent a,
+.main-navigation ul li.current_page_parent a,
+.main-navigation ul li.current-menu-ancestor a {
+	background: #43ab24;
+    display:block;
+    text-decoration:none;
+    text-transform:uppercase;
+	padding: 20px 30px;
+	box-shadow: inset 0px 2px 8px #3D8B18;
+}
+
+.header-image {
+	height:250px;
+}
+
+#masthead, #colophon, #content {
+  margin: 35px 0;
