@@ -61,7 +61,7 @@
 		google_ad_client = "ca-pub-5662749317184973";
 		/* медик_1 */
 		google_ad_slot = "4084673556";
-		google_ad_width = 625;
+		google_ad_width = 600;
 		google_ad_height = 100;
 		//-->
 	</script>
@@ -91,12 +91,22 @@
 			</div>
 		</div>
 		<div class="head-container">
+			<article id="post-0" class="search-field no-results not-found">
+				<header class="entry-header">
+					<p class="entry-title"><?php //_e( 'Nothing Found', ); ?></p>
+				</header>
+
+				<div class="entry-content">
+					<?php //_e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', ); ?>
+					<div class="search_field"><?php get_search_form(); ?></div>
+				</div><!-- .entry-content -->
+			</article><!-- #post-0 -->
 		</div>
 					
 			<?php } else { ?>
 				
-					<div class="head-container resp_full_width_menu">
-						<div class="container ">
+					<div class="header-container resp_full_width_menu">
+						<div class="container">
 							<div class="sixteen columns">
 								<header id="masthead" class="site-header" role="banner">
 									<?php 	
@@ -107,29 +117,52 @@
 									<div data-originalstyle="<?php echo $logo_pos_class; ?>" class="header-hgroup <?php echo $logo_pos_class; ?>">  
 										<?php echo fruitful_get_logo(); ?>
 									</div>	
-									<div data-originalstyle="<?php echo $menu_pos_class; ?>" class="menu-wrapper <?php echo $menu_pos_class; ?>">
-										<?php fruitful_get_languages_list(); ?>
-										<?php fruitful_get_cart_button_html(); ?>
-											
-										<nav role="navigation" class="site-navigation main-navigation">
-											<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-										</nav><!-- .site-navigation .main-navigation -->
-									</div>
+									<div class="banner-main-header">
+				<!-- ---------------------- Google Adsence-------------------------------------------------- -->
+					<script type="text/javascript"><!--
+						google_ad_client = "ca-pub-5662749317184973";
+						/* медик_1 */
+						google_ad_slot = "4084673556";
+						google_ad_width = 600;
+						google_ad_height = 100;
+						//-->
+					</script>
+					
+					<script type="text/javascript"
+						src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
+				<!-- ---------------------- Google Adsence-------------------------------------------------- -->
+					
+									</div>	
 								</header><!-- #masthead .site-header -->
 							</div>
 						</div>
-						<div class="site-header">
-							<div class="logo_wrapper"><?php echo fruitful_get_logo(); ?></div>
-							<div class="menu_button collapsed">
-								<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
+						<div class="nav-container">
+							<div class="container">
+								<div class="sixteen columns">
+									<div data-originalstyle="<?php echo $menu_pos_class; ?>" class="menu-wrapper <?php echo $menu_pos_class; ?>">
+											<?php fruitful_get_languages_list(); ?>
+											<?php fruitful_get_cart_button_html(); ?>
+												
+										<nav role="navigation" class="site-navigation main-navigation">
+												<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+										</nav><!-- .site-navigation .main-navigation -->
+										
+									</div>
+								</div>				
 							</div>
-							<div class="cart_wrapper"><?php fruitful_get_cart_button_html(); ?></div>
-							<div class="language_switcher"><?php fruitful_get_languages_list(); ?></div>
-							<div class="menu_wrapper collapse"><?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?></div>
+						</div>
+						<div class="head-container">
+							<article id="post-0" class="search-field no-results not-found">
+								<header class="entry-header">
+									<p class="entry-title"><?php //_e( 'Nothing Found', ); ?></p>
+								</header>
+
+								<div class="entry-content">
+									<?php //_e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', ); ?>
+									<div class="search_field"><?php get_search_form(); ?></div>
+								</div><!-- .entry-content -->
+							</article><!-- #post-0 -->
 						</div>
 					</div>
 					

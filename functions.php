@@ -1,0 +1,117 @@
+<?php
+
+function show_popular_posts(){	//SLIDER FRONT PAGE
+	   	 
+		$args=array(
+			'orderby'    => 'comment_count',
+			'post_type'   => 'post',
+			'post_status'   => 'publish',
+            'posts_per_page' => 5
+		);
+		$my_query = new WP_Query($args);
+     
+		if( $my_query->have_posts() ) {
+		$out = "";
+		$out .= '<div id="slides">';
+			$out .= '<div class="slides_container">';
+				while ($my_query->have_posts()) : $my_query->the_post(); 
+					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+					$out .= '<article style="height:223px" class="post type-post popular-posts"><div style="width:588px">';
+					$out .=		'<div class="left-block-content">
+										<header class="entry-header">
+											<a class="img_link" href="'.get_Permalink($post->ID).'"><img class="attachment-post-thumbnail wp-post-image" src="'.$feat_image.'"></a>
+										</header>
+								</div>';
+					$out .= 	'<div class="right-block-content-post">
+									<h1 class="entry-title">
+										<a class="img_link" href="'.get_Permalink($post->ID).'">'.get_the_title().'
+										</a>
+									</h1>';
+					$out .= 		'<div class="entry-content"><p>'.get_the_excerpt().'</p></div>
+								</div>
+							</div></article>';
+				endwhile;
+			$out .= '</div>';
+	   $out .= '</div>';
+       }
+		echo $out;
+    wp_reset_query();
+}
+
+function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
+   	 
+		$args=array(
+			'orderby'    => 'modified',
+			'post_type'   => 'post',
+			'post_status'   => 'publish',
+            'posts_per_page' => 5
+		);
+		$my_query = new WP_Query($args);
+     
+		if( $my_query->have_posts() ) {
+		$out1 = "";
+		$out1 .= '<div id="last_posts">
+					<h1>Последние заметки</h1>';
+			$out1 .= '<div class="last_container">';
+				while ($my_query->have_posts()) : $my_query->the_post(); 
+					/*$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );*/
+					$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
+					$cat_name = get_the_category();
+					foreach($cat_name as $value) {
+						$vCategory = $value->cat_name;
+					}
+					$out1 .= '<div class="post type-post last_posts">
+								<div class="last-content-post">
+									<img src="'.$feat_image[0].'" alt="'.get_the_title().'"/>
+									<h1 class="entry-title">
+										<a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a>
+									</h1>
+										<p class="date-last-posts"> '.get_the_date('d F', '<span>', '</span>').'. </p>
+										<p class="author-last-posts">'.get_the_author().'. </p>
+										<p class="p-last-posts">Категория: </p>  
+										<a href="'.get_tag_link( $value->term_id ).'"><p class="category-last-posts">'.$vCategory.'</p></a> 
+								</div>
+							</div>';
+				endwhile;
+			$out1 .= '</div>';
+	   $out1 .= '</div>';
+       }
+		echo $out1;
+    wp_reset_query();
+}
+
+function show_last_posts_blocks(){	//LAST POSTS FRONT PAGE CONTENT BLOCKS
+	   	 
+		$args=array(
+			'orderby'    	=> 'modified',
+			'order'			=> 'DESC',
+			'post_type'   	=> 'post',
+			'post_status'   => 'publish',
+			'posts_per_page'=> 5
+		);
+		$my_query = new WP_Query($args);
+		if( $my_query->have_posts() ) { 
+		
+		while ($my_query->have_posts()) : $my_query->the_post(); 
+			get_template_part('content'); 
+		endwhile; }
+}
+
+function my_search_form( $form ) {
+
+    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+				<div><label class="screen-reader-text" for="s">' . __('Search for:') . '</label>
+					<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Введите критерии поиска"/>
+					<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+				</div>
+			</form>';
+    return $form;
+}
+add_filter( 'get_search_form', 'my_search_form' );
+
+/*function for correct output date on russian language*/
+function dateToRussian($date) {
+    $month = array("Январь"=>"Января", "Февраль"=>"Февраля", "Март"=>"Марта", "Апрель"=>"Апреля", "Май"=>"Мая", "Июнь"=>"Июня", "Июль"=>"Июля", "Август"=>"Августа", "Сентябрь"=>"Сентября", "Октябрь"=>"Октября", "Ноябрь"=>"Ноября", "Декабрь"=>"Декабря");
+    $days = array("monday"=>"Понедельник", "tuesday"=>"Вторник", "wednesday"=>"Среда", "thursday"=>"Четверг", "friday"=>"Пятница", "saturday"=>"Суббота", "sunday"=>"Воскресенье");
+    echo str_replace(array_merge(array_keys($month), array_keys($days)), array_merge($month, $days), strtolower($date));
+}
