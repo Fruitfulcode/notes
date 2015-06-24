@@ -79,21 +79,23 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 					}
 					$out1 .= '<div class="post type-post last_posts">
 									<div class="left-block-content">
-										<div class="the_post_thumbnail_div">
-											<img src="'.$feat_image[0].'" width="240px" alt="'.get_the_title().'"/>
-										</div>
-										<div class="entry-comment-img">
-											<p class="the_date"> '.$the_post_date.'. </p>
-											<p class="the_category">'.$cat_name.'. </p>
-										</div>
+										<header class="entry-header">
+											<div class="the_post_thumbnail_div">
+												<img src="'.$feat_image[0].'" width="240px" alt="'.get_the_title().'"/>
+											</div>
+											<div class="entry-comment-img">
+												<p class="the_date"> '.$the_post_date.'. </p>
+												<p class="the_category">'.$cat_name.'. </p>
+											</div>
+										</header>
 									</div>
 									<div class="right-block-content-post">
 										<h1 class="entry-title">
 											<a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a>
 										</h1>										
-										<p class="entry-content">'.get_the_excerpt().'</p></a> 
+										<div class="entry-content">'.get_the_excerpt().'</div> 
 									</div>
-								/div>';
+								</div>';
 				endwhile;
 			$out1 .= '</div>';
 	   $out1 .= '</div>';
