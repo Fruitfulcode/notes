@@ -16,14 +16,17 @@ function show_popular_posts(){	//SLIDER FRONT PAGE
      
 		if( $my_query->have_posts() ) {
 		$out1 = "";
+		$out1 .= '<h1>Избранные заметки</h1>';
 		$out1 .= '<div class="flexslider">';
+
 			$out1 .= '<ul class="slides">';
 				while ($my_query->have_posts()) : $my_query->the_post(); 
 					/*$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );*/
 					$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
 					$cat_name = getTheCategory(', ');
 					$the_post_date = getDateToRussian(get_the_date('d F', $post_id ));
-					$out1 .= '<li class="post type-post last_posts">
+					$out1 .= '<li>
+								<div class="post type-post last_posts">
 									<div class="left-block-content">
 										<header class="entry-header">
 											<div class="the_post_thumbnail_div">
@@ -37,7 +40,8 @@ function show_popular_posts(){	//SLIDER FRONT PAGE
 										</h1>										
 										<div class="entry-content"><p>'.get_the_excerpt().'</p></div> 
 									</div>
-								</li>';
+								</div>
+							</li>';
 				endwhile;
 			$out1 .= '</ul>';
 	   $out1 .= '</div>';
