@@ -11,6 +11,18 @@ Text Domain: fruitful
 
 @import url("../fruitful/style.css");
 
+* {
+  letter-spacing: -0.5px;
+}
+
+span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
 h1 {
 	border-bottom: none;
 	padding: 0 0 10px 0;
@@ -26,6 +38,9 @@ h1 {
 	color: #575757;
 }
 
+.the_date {
+	margin: 0;
+}
 .nav-container {
 	background: #43ab24;
 }
@@ -192,4 +207,104 @@ button, input, textarea {
 
 .search-field {
 	margin-top: 80px;
+}
+
+.left-block-content {
+  width: 292px;
+  min-height: 227px;
+  display: block;
+  float: left;
+}
+
+.right-block-content-post {
+  width: 290px;
+  min-height: 260px;
+  display: block;
+  float: right;
+}
+
+.right-block-content-post div.entry-content a {
+  display: inline-block;
+  width: 135px;
+  height: 38px;
+  margin: 15px 0 0 0;
+  background: #43ab24;
+  line-height: 38px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.right-block-content-post .entry-title a{
+  font-family: open sans;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+article.type-post.post {
+  display: inline-block;
+  background-color: #fbfbfb;
+  padding: 20px;
+}
+
+.entry-header {
+  float: left;
+  text-align: left;
+	margin: 0;
+  margin-bottom: 15px;
+}
+
+.the_post_thumbnail_div {
+  min-height: 170px;
+  margin: 0;
+  padding: 0;
+}
+
+div#content img {
+  border: 1px solid #e9e9e9;
+}
+
+.entry-header .comments-link {
+  font-size: 13px;
+  font-size: 0.928571429rem;
+  line-height: 1.846153846;
+  color: #757575;
+}
+
+.left-block-content header.entry-header div.entry-commemnt-img {
+  width: 260px;
+  padding: 0 0 0 25px;
+  line-height: 20px;
+  background: url(img/clock_icon.png) 0 0 no-repeat transparent;
+}
+
+div#content p {
+  line-height: 1.714285714;
+  text-align: justify;
+}
+
+div#content p.the_category {
+  text-align: left;
+}
+
+.left-block-content header.entry-header div.entry-commemnt-img p.the_date {
+  display: block;
+  float: left;
+}
+
+.widget .tagcloud a {
+  float: left;
+  padding: 0 0 0 20px;
+  margin: 5px 10px 0 0;
+  background: url(img/tag_cat.png) no-repeat 0 0 transparent;
+  color: #757575;
+  font-size: 13px !important;
+  text-decoration: underline !important;
+}
+
+.widget-area .widget p, .widget-area .widget li, .widget-area .widget .textwidget {
+  line-height: 1.846153846;
 }

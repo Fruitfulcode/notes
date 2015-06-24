@@ -38,6 +38,22 @@ function show_popular_posts(){	//SLIDER FRONT PAGE
     wp_reset_query();
 }
 
+function new_excerpt_length($length) {
+	return 17;
+}
+add_filter('excerpt_length', 'new_excerpt_length'); 
+
+function new_excerpt_more( $more ) {
+	return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+function excerpt_read_more_link($output) {
+ global $post;
+ return $output .= '<p class="padding"></p><a class="a_box_shadow" href="'. get_permalink($post->ID) . '"> ПОДРОБНЕЕ</a>';
+}
+add_filter('get_the_excerpt', 'excerpt_read_more_link');
+
 function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
    	 
 		$args=array(
@@ -56,29 +72,36 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 				while ($my_query->have_posts()) : $my_query->the_post(); 
 					/*$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );*/
 					$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
-					$cat_name = get_the_category();
+					$cat_name = get_the_category( $post_id );
+					$the_post_date = get_the_date( $post_id );
 					foreach($cat_name as $value) {
 						$vCategory = $value->cat_name;
 					}
 					$out1 .= '<div class="post type-post last_posts">
-								<div class="last-content-post">
-									<img src="'.$feat_image[0].'" alt="'.get_the_title().'"/>
-									<h1 class="entry-title">
-										<a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a>
-									</h1>
-										<p class="date-last-posts"> '.get_the_date('d F', '<span>', '</span>').'. </p>
-										<p class="author-last-posts">'.get_the_author().'. </p>
-										<p class="p-last-posts">Категория: </p>  
-										<a href="'.get_tag_link( $value->term_id ).'"><p class="category-last-posts">'.$vCategory.'</p></a> 
-								</div>
-							</div>';
+									<div class="left-block-content">
+										<div class="the_post_thumbnail_div">
+											<img src="'.$feat_image[0].'" width="240px" alt="'.get_the_title().'"/>
+										</div>
+										<div class="entry-comment-img">
+											<p class="the_date"> '.$the_post_date.'. </p>
+											<p class="the_category">'.$cat_name.'. </p>
+										</div>
+									</div>
+									<div class="right-block-content-post">
+										<h1 class="entry-title">
+											<a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a>
+										</h1>										
+										<p class="entry-content">'.get_the_excerpt().'</p></a> 
+									</div>
+								/div>';
 				endwhile;
 			$out1 .= '</div>';
 	   $out1 .= '</div>';
        }
 		echo $out1;
     wp_reset_query();
-}
+}	
+		
 
 function show_last_posts_blocks(){	//LAST POSTS FRONT PAGE CONTENT BLOCKS
 	   	 
