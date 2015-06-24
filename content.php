@@ -20,7 +20,7 @@
 					<?php /*END TIMTHUMB*/ ?>
 					
 				</div>
-				<div class="entry-commemnt-img">
+				<div class="entry-comment-img">
 					<p class="the_date"><?php dateToRussian(the_date('d F', '<span>', '</span>', false)); ?></p>
 					<p class="the_category">, категория: <?php the_category(', '); ?></p>  
 				</div>

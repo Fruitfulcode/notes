@@ -125,7 +125,11 @@ h1 {
 	margin: 10px 0 20px 0;
 }
 
-.post.type-post{width:588px;border: 1px solid #e9e9e9;}
+.post.type-post {
+	border: 1px solid #e9e9e9;
+	display: inline-block;
+	padding: 20px;
+	}
 .page-links {
 	clear: both;
 	line-height: 1.714285714;
@@ -274,7 +278,7 @@ div#content img {
   color: #757575;
 }
 
-.left-block-content header.entry-header div.entry-commemnt-img {
+.left-block-content header.entry-header div.entry-comment-img {
   width: 260px;
   padding: 0 0 0 25px;
   line-height: 20px;
@@ -290,7 +294,7 @@ div#content p.the_category {
   text-align: left;
 }
 
-.left-block-content header.entry-header div.entry-commemnt-img p.the_date {
+.left-block-content header.entry-header div.entry-comment-img p.the_date {
   display: block;
   float: left;
 }

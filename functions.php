@@ -54,6 +54,16 @@ function excerpt_read_more_link($output) {
 }
 add_filter('get_the_excerpt', 'excerpt_read_more_link');
 
+function getDateToRussian($date) {
+    $month = array("Январь"=>"Января", "Февраль"=>"Февраля", "Март"=>"Марта", "Апрель"=>"Апреля", "Май"=>"Мая", "Июнь"=>"Июня", "Июль"=>"Июля", "Август"=>"Августа", "Сентябрь"=>"Сентября", "Октябрь"=>"Октября", "Ноябрь"=>"Ноября", "Декабрь"=>"Декабря");
+    $days = array("monday"=>"Понедельник", "tuesday"=>"Вторник", "wednesday"=>"Среда", "thursday"=>"Четверг", "friday"=>"Пятница", "saturday"=>"Суббота", "sunday"=>"Воскресенье");
+    return str_replace(array_merge(array_keys($month), array_keys($days)), array_merge($month, $days), strtolower($date));
+}
+
+function getTheCategory( $separator = '', $parents='', $post_id = false ) {
+	return get_the_category_list( $separator, $parents, $post_id );
+}
+
 function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
    	 
 		$args=array(
@@ -72,11 +82,8 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 				while ($my_query->have_posts()) : $my_query->the_post(); 
 					/*$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );*/
 					$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
-					$cat_name = get_the_category( $post_id );
-					$the_post_date = get_the_date( $post_id );
-					foreach($cat_name as $value) {
-						$vCategory = $value->cat_name;
-					}
+					$cat_name = getTheCategory(', ');
+					$the_post_date = getDateToRussian(get_the_date('d F', $post_id ));
 					$out1 .= '<div class="post type-post last_posts">
 									<div class="left-block-content">
 										<header class="entry-header">
@@ -84,8 +91,8 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 												<img src="'.$feat_image[0].'" width="240px" alt="'.get_the_title().'"/>
 											</div>
 											<div class="entry-comment-img">
-												<p class="the_date"> '.$the_post_date.'. </p>
-												<p class="the_category">'.$cat_name.'. </p>
+												<p class="the_date"> '.$the_post_date.' </p>
+												<p class="the_category">, категория: '.$cat_name.' </p>
 											</div>
 										</header>
 									</div>
