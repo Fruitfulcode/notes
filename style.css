@@ -26,7 +26,6 @@ span {
 h1 {
 	border-bottom: none;
 	padding: 0 0 10px 0;
-	margin: 10px 0 20px 0;
 }
 
 h1.entry-title.single-post {
@@ -303,7 +302,7 @@ div#content p.the_category {
   text-align: left;
 }
 
-#last_posts>h1 {
+#last_posts>h1, .page-header h1 {
 	font-size: 27px;
 }
 
@@ -325,7 +324,6 @@ div#content p.the_category {
 .widget-area .widget p, .widget-area .widget li, .widget-area .widget .textwidget {
   line-height: 1.846153846;
 }
-
 .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
   font-weight: bold;
 }
@@ -333,3 +331,11 @@ div#content p.the_category {
 .entry-comment-img p {
   font-style: italic;
 }
+
+.site-content .post {
+  margin-bottom: 15px;
+  }
+  
+ .flex-control-nav {
+	display: none;
+ }

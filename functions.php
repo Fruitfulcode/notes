@@ -1,6 +1,10 @@
 <?php
 
 function show_popular_posts(){	//SLIDER FRONT PAGE
+		//Add FlexSlider
+		wp_enqueue_style( 'flex-slider', 			get_template_directory_uri() . '/js/flex_slider/slider.css');
+		wp_enqueue_script('flex-fitvid-j',			get_template_directory_uri() . '/js/flex_slider/jquery.flexslider-min.js', array( 'jquery' ), '20130930', false );
+		wp_enqueue_script( 'flex-slider', 			get_stylesheet_directory_uri() . '/js/slider_init.js', array( 'jquery'));
 	   	 
 		$args=array(
 			'orderby'    => 'comment_count',
@@ -11,30 +15,34 @@ function show_popular_posts(){	//SLIDER FRONT PAGE
 		$my_query = new WP_Query($args);
      
 		if( $my_query->have_posts() ) {
-		$out = "";
-		$out .= '<div id="slides">';
-			$out .= '<div class="slides_container">';
+		$out1 = "";
+		$out1 .= '<div class="flexslider">';
+			$out1 .= '<ul class="slides">';
 				while ($my_query->have_posts()) : $my_query->the_post(); 
-					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-					$out .= '<article style="height:223px" class="post type-post popular-posts"><div style="width:588px">';
-					$out .=		'<div class="left-block-content">
+					/*$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );*/
+					$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
+					$cat_name = getTheCategory(', ');
+					$the_post_date = getDateToRussian(get_the_date('d F', $post_id ));
+					$out1 .= '<li class="post type-post last_posts">
+									<div class="left-block-content">
 										<header class="entry-header">
-											<a class="img_link" href="'.get_Permalink($post->ID).'"><img class="attachment-post-thumbnail wp-post-image" src="'.$feat_image.'"></a>
+											<div class="the_post_thumbnail_div">
+												<img src="'.$feat_image[0].'" width="240px" alt="'.get_the_title().'"/>
+											</div>
 										</header>
-								</div>';
-					$out .= 	'<div class="right-block-content-post">
-									<h1 class="entry-title">
-										<a class="img_link" href="'.get_Permalink($post->ID).'">'.get_the_title().'
-										</a>
-									</h1>';
-					$out .= 		'<div class="entry-content"><p>'.get_the_excerpt().'</p></div>
-								</div>
-							</div></article>';
+									</div>
+									<div class="right-block-content-post">
+										<h1 class="entry-title">
+											<p><a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a></p>
+										</h1>										
+										<div class="entry-content"><p>'.get_the_excerpt().'</p></div> 
+									</div>
+								</li>';
 				endwhile;
-			$out .= '</div>';
-	   $out .= '</div>';
+			$out1 .= '</ul>';
+	   $out1 .= '</div>';
        }
-		echo $out;
+		echo $out1;
     wp_reset_query();
 }
 
@@ -98,9 +106,9 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 									</div>
 									<div class="right-block-content-post">
 										<h1 class="entry-title">
-											<a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a>
+											<p><a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a></p>
 										</h1>										
-										<div class="entry-content">'.get_the_excerpt().'</div> 
+										<div class="entry-content"><p>'.get_the_excerpt().'</p></div> 
 									</div>
 								</div>';
 				endwhile;

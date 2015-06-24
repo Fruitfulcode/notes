@@ -12,7 +12,7 @@
 	<?php 
 		
 		/*Latest posts carousel*/
-		/*show_popular_posts();*/
+		show_popular_posts();
 		/*Latest posts listing*/
 		show_last_posts_list(); 
 	?>
