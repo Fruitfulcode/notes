@@ -104,7 +104,7 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 											</div>
 											<div class="entry-comment-img">
 												<p class="the_date"> '.$the_post_date.' </p>
-												<p class="the_category">, категория: '.$cat_name.' </p>
+												<p class="the_category"><span>, категория: </span>'. $cat_name.' </p>
 											</div>
 										</header>
 									</div>
@@ -158,4 +158,20 @@ function dateToRussian($date) {
     $month = array("Январь"=>"Января", "Февраль"=>"Февраля", "Март"=>"Марта", "Апрель"=>"Апреля", "Май"=>"Мая", "Июнь"=>"Июня", "Июль"=>"Июля", "Август"=>"Августа", "Сентябрь"=>"Сентября", "Октябрь"=>"Октября", "Ноябрь"=>"Ноября", "Декабрь"=>"Декабря");
     $days = array("monday"=>"Понедельник", "tuesday"=>"Вторник", "wednesday"=>"Среда", "thursday"=>"Четверг", "friday"=>"Пятница", "saturday"=>"Суббота", "sunday"=>"Воскресенье");
     echo str_replace(array_merge(array_keys($month), array_keys($days)), array_merge($month, $days), strtolower($date));
+}
+
+if ( ! function_exists( 'fruitful_metadevice' ) ) {
+	function fruitful_metadevice() {
+		$browser = '';				
+		$browser_ip	= strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");		
+		$browser_an	= strpos($_SERVER['HTTP_USER_AGENT'],"Android");		
+		$browser_ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");			 
+		if ($browser_ip  	== true) { $browser = 'iphone';  }	 
+		if ($browser_an		== true) { $browser = 'android'; } 	 
+		if ($browser_ipad 	== true) { $browser = 'ipad'; }
+
+		if($browser == 'iphone') 	{ echo '<meta name="viewport" content="width=320, maximum-scale=1, user-scalable=0"/>';  } 
+		if($browser == 'android') 	{ echo '<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width" />'; } 
+		if($browser == 'ipad') 		{ echo '<meta name="viewport" content="width=768px, minimum-scale=1.0, maximum-scale=1.0" />'; } 
+	}
 }

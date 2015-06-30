@@ -152,6 +152,19 @@
 								</div>				
 							</div>
 						</div>
+						<div class="site-header">
+							<div class="logo_wrapper"><?php echo fruitful_get_logo(); ?></div>
+							<div class="menu_button collapsed">
+								<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+							<div class="cart_wrapper"><?php fruitful_get_cart_button_html(); ?></div>
+							<div class="language_switcher"><?php fruitful_get_languages_list(); ?></div>
+							<div class="menu_wrapper collapse"><?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?></div>
+						</div>
 						<div class="head-container">
 							<article id="post-0" class="search-field no-results not-found">
 								<header class="entry-header">
