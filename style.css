@@ -364,15 +364,108 @@ div#content p.the_category {
 	display: none;
  }
  
+ @media only screen and (max-width : 768px) {
+ 	.nav-container {
+	display: none;
+	}
+	
+	.container {
+	width: 100%;
+	}
+	
+	.resp_full_width_menu .site-header {
+  width: 100%;
+  height: 100%;
+  float: none;
+}
+	
+	.container .one.column, .container .one.columns, .container .two.columns, .container .three.columns, .container .four.columns, .container .five.columns, .container .six.columns, .container .seven.columns, .container .eight.columns, .container .nine.columns, .container .ten.columns, .container .eleven.columns, .container .twelve.columns, .container .thirteen.columns, .container .fourteen.columns, .container .fifteen.columns, .container .sixteen.columns, .container .one-third.column, .container .two-thirds.column {
+  width: 100%;
+  max-width: 740px;
+}
+
+.right-block-content-post {
+  max-width: 400px;
+  width: 100%;
+  display: block;
+  float: left;
+}
+
+	.resp_full_width_menu .site-header {
+	width: 100%;
+  display: block;
+  float: none;
+  height: 113px;
+	}
+	
+	.resp_full_width_menu .menu_wrapper {
+	float: none;
+	width: 100%;
+	overflow-y: auto;
+	}
+	
+	#main-menu-2 {
+	  background-color: rgba(85, 159, 57, 0.9);
+	  position: fixed;
+		z-index: 200;
+	  height: 100%;
+	}
+	
+	.resp_full_width_menu .site-header .logo_wrapper {
+	width: 300px;
+	}
+	
+	.resp_full_width_menu .site-header .cart_wrapper, .resp_full_width_menu .site-header .menu_button {
+  display: block;
+  float: right;
+  margin-left: 12px;
+  margin-right: 38px;
+  margin-top: 57px;
+}
+	
+	.resp_full_width_menu .site-header .menu_button button {
+  background: none !important;
+  float: left;
+  margin: 15px 10px 9px;
+  padding: 0;
+  z-index: 300;
+  }
+	
+	#main-menu-2 .menu-item {
+	border-bottom: 1px solid rgb(108, 108, 108);
+	display: inline-block;
+	width: 100%;
+	}
+	
+	#main-menu-2 .menu-item:last-child {
+	border-bottom: none;
+	}
+	
+	.resp_full_width_menu .site-header .menu_wrapper .menu li a {
+	color: #ffffff;
+	font-size: 23px;
+	font-weight: 100;
+	text-transform: uppercase;
+	text-align: center;
+	padding-bottom: 32px;
+}
+
+.search_field {
+  width: 100%;
+}
+
+input#s {
+  width: 70%;
+}
+}
+ 
 @media only screen and (max-device-width : 320px) {
 
 	.container {
 	width: 290px;
 	}
 	
-	.nav-container {
-	display: none;
-	}
+
 	
 	.resp_full_width_menu .site-header {
 	width: 100%;
