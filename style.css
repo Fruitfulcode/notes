@@ -470,7 +470,7 @@ div#content p.the_category {
 	margin: 0 0 10px 0;
 	}
 	
-	#last_posts>h1, .popular-posts-wrapper>h1, .page-header h1 {
+	#last_posts>h1, .popular-posts-wrapper>h1, .page-header h1, .entry-header>h1 {
 	font-size: 27px;
 	text-align: center;
 	margin: 10px 0 20px;
@@ -510,3 +510,9 @@ div#content p.the_category {
 	padding: 0;
 	width: 286px;
 	}
+	
+	.site-content .post {
+	padding: 0px;
+	width: 285px;
+	border: none;
+}
