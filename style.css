@@ -229,7 +229,7 @@ button, input, textarea {
 }
 
 .right-block-content-post {
-  width: 290px;
+  width: calc(100% - 292px);
   display: block;
   float: left;
 }
@@ -258,7 +258,11 @@ button, input, textarea {
 article.type-post.post {
   display: inline-block;
   background-color: #fbfbfb;
-  padding: 20px;
+  padding: 3%;
+}
+
+.blog_post {
+  width: calc(94% - 2px);
 }
 
 .entry-header {
@@ -285,7 +289,7 @@ div#content img {
   color: #757575;
 }
 
-.left-block-content header.entry-header div.entry-comment-img {
+div.entry-comment-img {
   width: 260px;
   padding: 0 0 0 25px;
   line-height: 20px;
@@ -306,9 +310,10 @@ div#content p.the_category {
 	font-size: 27px;
 }
 
-.left-block-content header.entry-header div.entry-comment-img p.the_date {
+div.entry-comment-img p.the_date {
   display: block;
   float: left;
+  margin: 0;
 }
 
 .widget .tagcloud a {
@@ -338,6 +343,7 @@ div#content p.the_category {
     display: inline-block;
 	border: 1px solid #e9e9e9;
 	padding: 20px;
+	width: calc(100% - 42px);
   }
   
   #page .container #secondary .widget ul li.cat-item {
@@ -364,6 +370,52 @@ div#content p.the_category {
 	display: none;
  }
  
+ .right-block-content-post .entry-content .page-links a {
+  display: inline;
+  margin: 15px 0 0 0;
+  background: none;
+  line-height: inherit;
+  color: #43ab24;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.blog_post .date_of_post  {
+	display: none;
+}
+
+.blog .format-aside .entry-title, .archive .format-aside .entry-title {
+  display: inline;
+}
+
+header.post-header .post-title {
+  border: none;
+ }
+ 
+.tag-list {
+	float: left;
+	width: 100%;
+	margin: 25px 0;
+}
+
+.tag-list .date {
+  display: inline-block;
+  padding: 0 0 0 25px;
+  line-height: 20px;
+  background: url(img/clock_icon.png) 0 0 no-repeat transparent;
+  }
+ 
+.tag-list .date p {
+float: left;
+}
+
+#comments.comments-area ol.commentlist li {
+	width: calc(100% - 40px);
+}
+
+ 
  @media only screen and (max-width : 768px) {
  	.nav-container {
 	display: none;
@@ -371,6 +423,10 @@ div#content p.the_category {
 	
 	.container {
 	width: 100%;
+	}
+	
+	#masthead {
+	display: none;
 	}
 	
 	.resp_full_width_menu .site-header {
@@ -457,6 +513,7 @@ div#content p.the_category {
 input#s {
   width: 70%;
 }
+
 }
  
 @media only screen and (max-device-width : 320px) {
