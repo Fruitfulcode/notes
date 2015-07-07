@@ -253,8 +253,7 @@ if ( ! function_exists( 'fruitful_metadevice' ) ) {
 										?>
 										<div class="tag-list">
 											<div class="date">
-													<p class="the_date"> <?php echo $the_post_date ?> </p>
-													<p class="the_category"><span>, категория: </span> <?php echo $cat_name ?> </p>
+													<p class="the_date"><?php echo $the_post_date ?><span>, категория: </span> <?php echo $cat_name ?> </p>
 											</div>
 											<p class="tags">Tags: <?php echo $tags_list; ?> </p>
 											
