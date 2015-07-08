@@ -55,23 +55,6 @@
 					<div data-originalstyle="<?php echo $logo_pos_class; ?>" class="header-hgroup <?php echo $logo_pos_class; ?>">  
 						<?php echo fruitful_get_logo(); ?>
 					</div>	
-					<div class="banner-main-header">
-<!-- ---------------------- Google Adsence-------------------------------------------------- -->
-	<script type="text/javascript"><!--
-		google_ad_client = "ca-pub-5662749317184973";
-		/* медик_1 */
-		google_ad_slot = "4084673556";
-		google_ad_width = 600;
-		google_ad_height = 100;
-		//-->
-	</script>
-	
-	<script type="text/javascript"
-		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
-<!-- ---------------------- Google Adsence-------------------------------------------------- -->
-	
-					</div>	
 				</header><!-- #masthead .site-header -->
 			</div>
 		</div>
@@ -116,23 +99,6 @@
 									?>
 									<div data-originalstyle="<?php echo $logo_pos_class; ?>" class="header-hgroup <?php echo $logo_pos_class; ?>">  
 										<?php echo fruitful_get_logo(); ?>
-									</div>	
-									<div class="banner-main-header">
-				<!-- ---------------------- Google Adsence-------------------------------------------------- -->
-					<script type="text/javascript"><!--
-						google_ad_client = "ca-pub-5662749317184973";
-						/* медик_1 */
-						google_ad_slot = "4084673556";
-						google_ad_width = 600;
-						google_ad_height = 100;
-						//-->
-					</script>
-					
-					<script type="text/javascript"
-						src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-					</script>
-				<!-- ---------------------- Google Adsence-------------------------------------------------- -->
-					
 									</div>	
 								</header><!-- #masthead .site-header -->
 							</div>
