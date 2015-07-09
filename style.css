@@ -31,13 +31,11 @@ h1 {
 h1.entry-title.single-post {
 	margin: 0 0 25px 0;
 	color: #575757;
-	font-size: 24px;
 	font-weight: 500;
 	text-decoration: none;
 }
 
 .widget h3 {
-	font-size: 24px;
 	font-weight: 400;
 	text-transform: none;
 	line-height: 1;
@@ -79,10 +77,6 @@ h1.entry-title.single-post {
 .main-navigation ul ul:hover > a {
     color:#333 !important;
     text-shadow:none !important;
-}
-
-#page .container #secondary .widget a {
-	font-size: inherit;
 }
 
 .main-navigation ul li a:hover,
@@ -132,7 +126,6 @@ h1.entry-title.single-post {
 #page .container #secondary .widget h3.widget-title, #page .container #secondary .widget h1.widget-title {
 	border-bottom: none;
 	padding: 0 0 10px 0;
-	margin: 10px 0 20px 0;
 }
 
 .post .type-post {
@@ -255,13 +248,13 @@ button, input, textarea {
 	line-height: 38px;
 	color: #fff;
 	font-weight: bold;
-	font-size: 16px;
+	/*font-size: 16px;*/
 	text-align: center;
 	text-decoration: none;
 }
 
 .right-block-content-post .entry-title a{
-	font-size: 20px;
+	/*font-size: 20px;*/
 	font-weight: 500;
 	text-decoration: none;
 }
@@ -294,8 +287,8 @@ div#content img {
 }
 
 .entry-header .comments-link {
-	font-size: 13px;
-	font-size: 0.928571429rem;
+	/*font-size: 13px;*/
+	/*font-size: 0.928571429rem;*/
 	line-height: 1.846153846;
 	color: #757575;
 }
@@ -317,10 +310,6 @@ div#content p {
 div#content p.the_category {
 	text-align: left;
 	margin-right: 20px;
-}
-
-#last_posts>h1, .popular-posts-wrapper>h1, .page-header h1 {
-	font-size: 27px;
 }
 
 div.entry-comment-img p.the_date {
@@ -773,7 +762,7 @@ article.type-post.post {
 }
 
 #main-menu-2 {
-	background-color: rgba(85, 159, 57, 0.9);
+	opacity: 0.9;
 	position: absolute;
 	z-index: 200;
 	height: 100%;
@@ -793,25 +782,6 @@ article.type-post.post {
 	margin: 15px 10px 9px;
 	padding: 0;
 	z-index: 300;
-}
-
-#main-menu-2 .menu-item {
-	border-bottom: 1px solid rgb(108, 108, 108);
-	display: inline-block;
-	width: 100%;
-}
-
-#main-menu-2 .menu-item:last-child {
-	border-bottom: none;
-}
-
-.resp_full_width_menu .site-header .menu_wrapper .menu li a {
-	color: #ffffff;
-	font-size: 23px;
-	font-weight: 100;
-	text-transform: uppercase;
-	text-align: center;
-	padding-bottom: 32px;
 }
 
 .search_field {

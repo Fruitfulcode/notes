@@ -138,7 +138,7 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 													<p><a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a></p>
 												</h1>										
 												<div class="entry-content"><p>'.get_the_excerpt().'</p></div> 
-												<div class="entry-comment-img" style="width: 100%">
+												<div class="entry-comment-img" style="width: calc(100% - 25px)">
 													<p class="the_date"> '.$the_post_date.' </p>
 													<p class="the_category"><span>, категория: </span>'. $cat_name.' </p>
 												</div>
@@ -222,7 +222,7 @@ if ( ! function_exists( 'fruitful_get_responsive_style' ) ) {
 				$style_ .= 'h1, h2, h3, h4, h5, h6 {font-family : '. esc_attr($theme_options['h_font_family']) .'; } ' . "\n";
 				$style_ .= '.main-navigation a     {font-family : '. esc_attr($theme_options['m_font_family']) .'; color : '.esc_attr($theme_options['menu_font_color']). '; } ' . "\n";
 				$style_ .= '.main-navigation ul:not(.sub-menu) > li > a, .main-navigation ul:not(.sub-menu) > li:hover > a   { font-size : '.esc_attr($theme_options['m_size']) .'px;    } ' . "\n";
-				$style_ .= '.nav-container, .main-navigation ul ul a {background-color : ' .esc_attr($theme_options['menu_bg_color']). '; color : '.esc_attr($theme_options['menu_font_color']). '; } ' . "\n";
+				$style_ .= '#main-menu-2, .nav-container, .main-navigation ul ul a {background-color : ' .esc_attr($theme_options['menu_bg_color']). '; color : '.esc_attr($theme_options['menu_font_color']). '; } ' . "\n";
 				
 				
 				if (!empty($theme_options['menu_bg_color']))   { $style_ .= '.main-navigation {background-color : ' .esc_attr($theme_options['menu_bg_color']) . '; }' . "\n";  }
