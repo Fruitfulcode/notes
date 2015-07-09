@@ -26,7 +26,7 @@
 					
 				</div>
 				<div class="entry-comment-img">
-					<p class="the_date"><?php dateToRussian(the_date('d F', '<span>', '</span>', false)); ?></p>
+					<p class="the_date"><?php dateToRussian( the_date('d F', '<span>', '</span>', false)); ?></p>
 					<p class="the_category"><span>, категория:</span> <?php the_category(', '); ?></p>  
 				</div>
 			</header><!-- .entry-header -->
@@ -44,7 +44,7 @@
 	else { //if no thumbnail
 				?> 
 				<!-- div class="right-block-content" -->
-			<?php if ( is_single() ) : {echo ('<div class="right-block-content" style="width: 100%; max-width: 100%">'); ?>
+			<?php if ( is_single() ) : {echo ('<div class="right-block-content" style="width: calc(100% - 42px)">'); ?>
 				<h1 class="entry-title single-post"><?php the_title();} ?></h1>
 				<?php else : {echo ('<div class="right-block-content-post" style="width: 100%; max-width: 100%">'); ?>
 					<p class="entry-title">
