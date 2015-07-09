@@ -31,7 +31,6 @@ h1 {
 h1.entry-title.single-post {
 	margin: 0 0 25px 0;
 	color: #575757;
-	font-family: open sans;
 	font-size: 24px;
 	font-weight: 500;
 	text-decoration: none;
@@ -40,7 +39,6 @@ h1.entry-title.single-post {
 .widget h3 {
 	font-size: 24px;
 	font-weight: 400;
-	font-family: open sans;
 	text-transform: none;
 	line-height: 1;
 	color: #575757;
@@ -49,9 +47,7 @@ h1.entry-title.single-post {
 .the_date {
 	margin: 0;
 }
-.nav-container {
-	background: #43ab24;
-}
+	
 .main-navigation {
 	margin: 0;
 }
@@ -84,6 +80,11 @@ h1.entry-title.single-post {
     color:#333 !important;
     text-shadow:none !important;
 }
+
+#page .container #secondary .widget a {
+	font-size: inherit;
+}
+
 .main-navigation ul li a:hover,
 .main-navigation ul ul li.current_page_item a,
 .main-navigation ul ul li.current-menu-item a,
@@ -110,6 +111,10 @@ h1.entry-title.single-post {
     text-transform:uppercase;
 	padding: 17px 30px;
 	box-shadow: inset 0px 2px 8px #797979;
+}
+
+.main-navigation ul ul {
+  top: 55px;
 }
 
 .header-image {
@@ -177,7 +182,7 @@ div.left-block-content header.entry-header img.wp-post-image{
 }
 
 input#s {
-	width: 670px;
+	width: calc(100% - 162px);
 	height: 41px;
 	outline: none;
 	padding-left: 10px;
@@ -247,7 +252,6 @@ button, input, textarea {
 	width: 135px;
 	height: 38px;
 	margin: 15px 0 0 0;
-	background: #43ab24;
 	line-height: 38px;
 	color: #fff;
 	font-weight: bold;
@@ -257,7 +261,6 @@ button, input, textarea {
 }
 
 .right-block-content-post .entry-title a{
-	font-family: open sans;
 	font-size: 20px;
 	font-weight: 500;
 	text-decoration: none;
@@ -625,7 +628,7 @@ body .resp-tabs-container{
 	display: block; 
 	margin: 0 auto; 
 	margin-bottom: 5px; 
-	background: #333333;
+	/*background: #333333;*/
 	height: 5px; 
 	width: 35px; 
 	border-radius: 3px; 
