@@ -52,6 +52,7 @@
 							fruitful_get_socials_icon(); 
 						}	 
 					?>
+					<?php fruitful_get_cart_button_html(); ?>
 					<div data-originalstyle="<?php echo $logo_pos_class; ?>" class="header-hgroup <?php echo $logo_pos_class; ?>">  
 						<?php echo fruitful_get_logo(); ?>
 					</div>	
@@ -63,7 +64,6 @@
 				<div class="sixteen columns">
 					<div data-originalstyle="<?php echo $menu_pos_class; ?>" class="menu-wrapper <?php echo $menu_pos_class; ?>">
 							<?php fruitful_get_languages_list(); ?>
-							<?php fruitful_get_cart_button_html(); ?>
 								
 						<nav role="navigation" class="site-navigation main-navigation">
 								<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
@@ -72,6 +72,12 @@
 					</div>
 				</div>				
 			</div>
+		</div>
+		<div class="site-header">
+			<div class="logo_wrapper"><?php echo fruitful_get_logo(); ?></div>
+			<div class="cart_wrapper"><?php fruitful_get_cart_button_html(); ?></div>
+			<div class="language_switcher"><?php fruitful_get_languages_list(); ?></div>
+			<div class="menu_wrapper collapse"><?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?></div>
 		</div>
 		<div class="head-container">
 			<article id="post-0" class="search-field no-results not-found">
@@ -97,6 +103,7 @@
 											fruitful_get_socials_icon(); 
 										}	 
 									?>
+									<?php fruitful_get_cart_button_html(); ?>
 									<div data-originalstyle="<?php echo $logo_pos_class; ?>" class="header-hgroup <?php echo $logo_pos_class; ?>">  
 										<?php echo fruitful_get_logo(); ?>
 									</div>	
@@ -108,7 +115,6 @@
 								<div class="sixteen columns">
 									<div data-originalstyle="<?php echo $menu_pos_class; ?>" class="menu-wrapper <?php echo $menu_pos_class; ?>">
 											<?php fruitful_get_languages_list(); ?>
-											<?php fruitful_get_cart_button_html(); ?>
 												
 										<nav role="navigation" class="site-navigation main-navigation">
 												<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>

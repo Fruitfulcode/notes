@@ -15,6 +15,10 @@ Text Domain: fruitful
 	letter-spacing: -0.5px;
 }
 
+.header-container>.site-header {
+	display: none;
+}
+
 .page-container {
 	padding-top: 50px;
 	margin-bottom: 10px;
@@ -471,6 +475,18 @@ header.post-header .post-title {
 #page {
 	position: inherit;
 }
+
+.header-container>.site-header {
+	display: block;
+}
+
+.header-container>.container {
+	display: none;
+}
+
+.responsive .select-menu {
+  margin: 16px 0 25px 16px !important;
+}
  
 #page-header .head-container {
 	z-index: 0;
@@ -579,10 +595,6 @@ body .resp-tab-content{
 body .resp-tabs-container{
 	width: 96% !important;
 	margin: 0 2%;
-}
-
-.resp_full_width_menu>.container{
-	display:none;
 }
 
 .resp_full_width_menu>.site-header{
