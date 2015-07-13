@@ -16,7 +16,7 @@ function show_popular_posts(){	//SLIDER FRONT PAGE
      
 		if( $my_query->have_posts() ) {
 		$out1 = "";
-		$out1 .= '<h1>Избранные заметки</h1>';
+		$out1 .= '<h1>Chosen posts</h1>';
 		
 		$out1 .= '<div class="flexslider">';
 
@@ -77,7 +77,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 function excerpt_read_more_link($output) {
  global $post;
- return $output .= '<p class="padding"></p><a class="a_box_shadow" href="'. get_permalink($post->ID) . '"> ПОДРОБНЕЕ</a>';
+ return $output .= '<p class="padding"></p><a class="a_box_shadow" href="'. get_permalink($post->ID) . '"> Read More</a>';
 }
 add_filter('get_the_excerpt', 'excerpt_read_more_link');
 
@@ -104,7 +104,7 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 		if( $my_query->have_posts() ) {
 		$out1 = "";
 		$out1 .= '<div id="last_posts">
-					<h1>Последние заметки</h1>';
+					<h1>Last Pots</h1>';
 			$out1 .= '<div class="last_container">';
 				while ($my_query->have_posts()) : $my_query->the_post(); 
 					/*$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );*/
@@ -120,7 +120,7 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 											</div>
 											<div class="entry-comment-img">
 												<p class="the_date"> '.$the_post_date.' </p>
-												<p class="the_category"><span>, категория: </span>'. $cat_name.' </p>
+												<p class="the_category"><span>, Posted in: </span>'. $cat_name.' </p>
 											</div>
 										</header>
 									</div>
@@ -140,7 +140,7 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 												<div class="entry-content"><p>'.get_the_excerpt().'</p></div> 
 												<div class="entry-comment-img" style="width: calc(100% - 25px)">
 													<p class="the_date"> '.$the_post_date.' </p>
-													<p class="the_category"><span>, категория: </span>'. $cat_name.' </p>
+													<p class="the_category"><span>, Posted in: </span>'. $cat_name.' </p>
 												</div>
 											</div>
 										</div>';
@@ -175,7 +175,7 @@ function my_search_form( $form ) {
 
     $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
 				<div><label class="screen-reader-text" for="s">' . __('Search for:') . '</label>
-					<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Введите критерии поиска"/>
+					<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search..."/>
 					<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
 				</div>
 			</form>';
@@ -633,7 +633,7 @@ if ( ! function_exists( 'fruitful_metadevice' ) ) {
 										?>
 										<div class="tag-list">
 											<div class="date">
-													<p class="the_date"><?php echo $the_post_date ?><span>, категория: </span> <?php echo $cat_name ?> </p>
+													<p class="the_date"><?php echo $the_post_date ?><span>, Posted in: </span> <?php echo $cat_name ?> </p>
 											</div>
 											<?php if( has_tag() )
 												echo '<p class="tags">Tags: '.$tags_list.'</p>' ; ?> 
@@ -823,4 +823,9 @@ if ( ! function_exists( 'fruitful_metadevice' ) ) {
 			get_html_custom_post_template('alpha', 'omega', $curr_sidebar, $curr_template);
 		}
 	}
+
+add_action( 'after_setup_theme', function () {
+    // load translation file for the child theme
+    load_child_theme_textdomain( 'fruitful-child', get_stylesheet_directory() . '/languages' );
+} );
 	

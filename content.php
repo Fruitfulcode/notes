@@ -27,7 +27,7 @@
 				</div>
 				<div class="entry-comment-img">
 					<p class="the_date"><?php dateToRussian( the_date('d F', '<span>', '</span>', false)); ?></p>
-					<p class="the_category"><span>, категория:</span> <?php the_category(', '); ?></p>  
+					<p class="the_category"><span>, сategory:</span> <?php the_category(', '); ?></p>  
 				</div>
 			</header><!-- .entry-header -->
 		</div>  <!-- end left-block-content -->
@@ -52,7 +52,7 @@
 				</p>
 				<div class="entry-comment-img" style="width: 100%">
 					<p class="the_date"><?php dateToRussian(the_date('d F', '<span>', '</span>', false)); ?></p>
-					<p class="the_category"><span>, категория:</span> <?php the_category(', '); ?></p>  
+					<p class="the_category"><span>, сategory:</span> <?php the_category(', '); ?></p>  
 				</div>
 				<?php ; endif; ?>
 		
