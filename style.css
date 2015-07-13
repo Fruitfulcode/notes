@@ -225,6 +225,7 @@ button, input, textarea {
 	font-family: inherit;
 	padding: 6px;
 	padding: 0.428571429rem;
+	margin-bottom: 15px;
 }
 
 .screen-reader-text {
@@ -288,7 +289,7 @@ button, input, textarea {
 
 article.type-post.post {
 	display: inline-block;
-	background-color: #fbfbfb;
+	/*background-color: #fbfbfb;*/
 	padding: 3%;
 }
 
@@ -392,6 +393,11 @@ div.entry-comment-img p.the_date {
  
 .popular-posts-wrapper .flexslider {
 	margin: 0;
+	background: inherit;
+}
+
+.popular-posts-wrapper .flexslider .flex-control-nav {
+	display: none;
 }
 
 .main-slider-container {
@@ -440,7 +446,7 @@ header.post-header .post-title {
 	width: calc(40% - 30px);
 	border: 1px solid #e8eae7;
 	padding: 15px;
-	background-color: #fafff8;
+	/*background-color: #fafff8;*/
 }
 
 .site-content .nav-next {
@@ -476,12 +482,20 @@ header.post-header .post-title {
 	position: inherit;
 }
 
+.header-hgroup a.link-logo-retina, #page-header .header-container a.link-logo-retina {
+ display:none;
+}
+
 .header-container>.site-header {
 	display: block;
 }
 
 .header-container>.container {
 	display: none;
+}
+
+.select-menu {
+  width: calc(100% - 90px);
 }
 
 .responsive .select-menu {

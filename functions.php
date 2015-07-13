@@ -635,7 +635,8 @@ if ( ! function_exists( 'fruitful_metadevice' ) ) {
 											<div class="date">
 													<p class="the_date"><?php echo $the_post_date ?><span>, категория: </span> <?php echo $cat_name ?> </p>
 											</div>
-											<p class="tags">Tags: <?php echo $tags_list; ?> </p>
+											<?php if( has_tag() )
+												echo '<p class="tags">Tags: '.$tags_list.'</p>' ; ?> 
 											
 										</div>
 										<?php fruitful_content_nav( 'nav-below' );
@@ -822,3 +823,4 @@ if ( ! function_exists( 'fruitful_metadevice' ) ) {
 			get_html_custom_post_template('alpha', 'omega', $curr_sidebar, $curr_template);
 		}
 	}
+	
