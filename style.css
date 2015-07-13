@@ -57,6 +57,10 @@ h1 {
 	padding: 0 0 10px 0;
 }
 
+#masthead h2 {
+	  margin: 0;
+}
+
 h1.entry-title.single-post {
 	margin: 0 0 25px 0;
 	color: #575757;
@@ -89,10 +93,10 @@ h1.entry-title.single-post {
 	margin: 0;
 }
 
-.main-navigation a {
+.main-navigation ul ul a, .main-navigation a {
     display:block;
 	padding: 17px 30px;
-	font-size:17px;
+	text-transform:uppercase;
 }
 
 .main-navigation ul li:hover > a {
@@ -100,7 +104,6 @@ h1.entry-title.single-post {
     text-decoration:none;
     text-transform:uppercase;
 	padding: 17px 30px;
-	font-size:17px;
 }
 
 .main-navigation ul ul:hover > a {
@@ -302,6 +305,10 @@ article.type-post.post {
 	text-align: left;
 	margin: 0;
 	margin-bottom: 15px;
+}
+
+.head-container .entry-header {
+	display: none;
 }
 
 .the_post_thumbnail_div {
