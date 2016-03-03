@@ -25,7 +25,7 @@
 <body <?php body_class();?>>
 	<div id="page-header" class="hfeed site">
 	<?php
-		$theme_options  = fruitful_ret_options("fruitful_theme_options");
+		$theme_options  = fruitful_get_theme_options("fruitful_theme_options");
 		$logo_pos = $menu_pos = '';
 		
 		if (isset($theme_options['logo_position'])) 
@@ -81,12 +81,7 @@
 		</div>
 		<div class="head-container">
 			<article id="post-0" class="search-field no-results not-found">
-				<header class="entry-header">
-					<p class="entry-title"><?php //_e( 'Nothing Found', ); ?></p>
-				</header>
-
 				<div class="entry-content">
-					<?php //_e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', ); ?>
 					<div class="search_field"><?php get_search_form(); ?></div>
 				</div><!-- .entry-content -->
 			</article><!-- #post-0 -->

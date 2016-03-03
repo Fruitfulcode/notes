@@ -11,13 +11,13 @@
 				<h1 class="entry-title"><?php the_title();} ?></h1>
 				<?php else : {echo ('<div class="right-block-content-post">'); ?>
 				<p class="entry-title">
-					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title();} ?></a>
+					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'notes' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title();} ?></a>
 				</p>
 				<?php endif; // is_single() ?>
 		
 			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
 			<div class="featured-post">
-				<?php _e( 'Feature	d post', 'twentytwelve' ); ?>
+				<?php _e( 'Feature	d post', 'notes' ); ?>
 			</div>
 			<?php endif; ?>
 

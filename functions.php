@@ -22,7 +22,7 @@ function show_popular_posts(){	//SLIDER FRONT PAGE
 
 			$out1 .= '<ul class="slides">';
 				while ($my_query->have_posts()) : $my_query->the_post(); 
-					/*$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );*/
+					$post_id = get_the_ID();
 					$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
 					$cat_name = getTheCategory(', ');
 					$the_post_date = getDateToRussian(get_the_date('d F', $post_id ));
@@ -50,7 +50,7 @@ function show_popular_posts(){	//SLIDER FRONT PAGE
 										<div class="post type-post last_posts">
 											<div class="right-block-content-post" style="width: 100%">
 												<h1 class="entry-title">
-													<p><a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a></p>
+													<p><a href="'.get_Permalink($post_id).'">'.get_the_title().'</a></p>
 												</h1>										
 												<div class="entry-content"><p>'.get_the_excerpt().'</p></div> 
 											</div>
@@ -107,7 +107,7 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 					<h1>Last Pots</h1>';
 			$out1 .= '<div class="last_container">';
 				while ($my_query->have_posts()) : $my_query->the_post(); 
-					/*$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );*/
+					$post_id = get_the_ID();
 					$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium');
 					$cat_name = getTheCategory(', ');
 					$the_post_date = getDateToRussian(get_the_date('d F', $post_id ));
@@ -126,7 +126,7 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 									</div>
 									<div class="right-block-content-post">
 										<h1 class="entry-title">
-											<p><a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a></p>
+											<p><a href="'.get_Permalink($post_id).'">'.get_the_title().'</a></p>
 										</h1>										
 										<div class="entry-content"><p>'.get_the_excerpt().'</p></div> 
 									</div>
@@ -135,7 +135,7 @@ function show_last_posts_list(){	//LAST POSTS FRONT PAGE LIST
 						$out1 .= '<div class="post type-post last_posts">
 											<div class="right-block-content-post" style="width: 100%">
 												<h1 class="entry-title">
-													<p><a href="'.get_Permalink($post->ID).'">'.get_the_title().'</a></p>
+													<p><a href="'.get_Permalink($post_id).'">'.get_the_title().'</a></p>
 												</h1>										
 												<div class="entry-content"><p>'.get_the_excerpt().'</p></div> 
 												<div class="entry-comment-img" style="width: calc(100% - 25px)">
@@ -174,9 +174,9 @@ function show_last_posts_blocks(){	//LAST POSTS FRONT PAGE CONTENT BLOCKS
 function my_search_form( $form ) {
 
     $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-				<div><label class="screen-reader-text" for="s">' . __('Search for:') . '</label>
+				<div><label class="screen-reader-text" for="s">' . __('Search for:', 'notes') . '</label>
 					<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search..."/>
-					<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+					<input type="submit" id="searchsubmit" value="'. esc_attr__('Search', 'notes') .'" />
 				</div>
 			</form>';
     return $form;
@@ -193,7 +193,7 @@ function dateToRussian($date) {
 if ( ! function_exists( 'fruitful_get_responsive_style' ) ) {
 	function fruitful_get_responsive_style () {
 		$style_ = $back_style = $woo_style_ = '';
-		$theme_options  = fruitful_ret_options("fruitful_theme_options"); 
+		$theme_options  = fruitful_get_theme_options("fruitful_theme_options"); 
 		fruitful_add_custom_fonts();
 		if (isset($theme_options['responsive']) && ($theme_options['responsive'] == 'on')) {
 			if (class_exists('woocommerce')){wp_enqueue_style( 'woo-style', get_template_directory_uri() . '/woocommerce/woo.css');}
@@ -601,7 +601,7 @@ if ( ! function_exists( 'fruitful_metadevice' ) ) {
 				$page_for_posts = get_option('page_for_posts');
 				
 				if (is_page() && !empty($page_on_front) &&  !empty($page_for_posts) && ($page_on_front == $page_for_posts)) {
-					echo '<div class="alert alert-danger"><strong>'.__("Front page displays Error.", 'fruitful').'</strong> '.__('Select different pages!', 'fruitful').'</div>';
+					echo '<div class="alert alert-danger"><strong>'.__("Front page displays Error.", 'notes').'</strong> '.__('Select different pages!', 'notes').'</div>';
 					
 				} else {
 					if (!is_archive() && !is_search() && !is_404()) {
@@ -627,9 +627,9 @@ if ( ! function_exists( 'fruitful_metadevice' ) ) {
 										}
 									} else if (is_single()) {
 										get_template_part( 'content', get_post_format() );
-										$tags_list = get_the_tag_list( '', __( ', ', 'fruitful' ) );
+										$tags_list = get_the_tag_list( '', __( ', ', 'notes' ) );
 										$cat_name = getTheCategory(', ');
-										$the_post_date = getDateToRussian(get_the_date('d F', $post_id ));
+										$the_post_date = getDateToRussian(get_the_date('d F', $post->ID ));
 										?>
 										<div class="tag-list">
 											<div class="date">
@@ -662,30 +662,30 @@ if ( ! function_exists( 'fruitful_metadevice' ) ) {
 													
 													if ( is_archive()) {
 														if ( is_category() ) {
-															printf( __( 'Category Archives: %s', 'fruitful' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+															printf( __( 'Category Archives: %s', 'notes' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 														} elseif ( is_tag() ) {
-															printf( __( 'Tag Archives: %s', 'fruitful' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+															printf( __( 'Tag Archives: %s', 'notes' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 														} elseif ( is_author() ) {
 															the_post();
-															printf( __( 'Author Archives: %s', 'fruitful' ), '<span class="vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( "ID" ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' );
+															printf( __( 'Author Archives: %s', 'notes' ), '<span class="vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( "ID" ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' );
 															rewind_posts();
 
 														} elseif ( is_day() ) {
-															printf( __( 'Daily Archives: %s', 'fruitful' ), '<span>' . get_the_date() . '</span>' );
+															printf( __( 'Daily Archives: %s', 'notes' ), '<span>' . get_the_date() . '</span>' );
 	
 														} elseif ( is_month() ) {
-															printf( __( 'Monthly Archives: %s', 'fruitful' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+															printf( __( 'Monthly Archives: %s', 'notes' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
 
 														} elseif ( is_year() ) {
-															printf( __( 'Yearly Archives: %s', 'fruitful' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
+															printf( __( 'Yearly Archives: %s', 'notes' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 
 														} else {
-															_e( 'Archives', 'fruitful' );
+															_e( 'Archives', 'notes' );
 														}
 													}
 													
 													if (is_search())
-														printf( __( 'Search Results for: %s', 'fruitful' ), '<span>' . get_search_query() . '</span>' ); 
+														printf( __( 'Search Results for: %s', 'notes' ), '<span>' . get_search_query() . '</span>' ); 
 												?>
 											</h1>
 											<?php
@@ -826,6 +826,91 @@ if ( ! function_exists( 'fruitful_metadevice' ) ) {
 
 add_action( 'after_setup_theme', function () {
     // load translation file for the child theme
-    load_child_theme_textdomain( 'fruitful-child', get_stylesheet_directory() . '/languages' );
+    load_child_theme_textdomain( 'notes', get_stylesheet_directory() . '/languages' );
 } );
+
+
+function child_options($sections) {
+		$sections['header'] = array(
+			'title'		=> __( 'Header', 'fruitful' ),
+			'id'		=> 'header',
+			'fields'	=> array(	
+				array(
+					'id' 			=> 'menu_position',
+					'label'			=> __( 'Menu Position' , 'fruitful' ),
+					'info'          => __( 'Set menu position.', 'fruitful' ),			
+					'type'			=> 'select',
+					'options'		=> 	array( 
+											'2' => __('Right', 'fruitful'), 
+											'0' => __('Left', 'fruitful') , 
+											'1' => __('Center', 'fruitful')
+										),
+					'default'		=> '2'
+				),
+				array(
+					'id' 			=> 'menu_type_responsive',
+					'label'			=> __( 'Type of Responsive menu' , 'fruitful' ),
+					'info'          => __( 'Set type of responsive menu.', 'fruitful' ),			
+					'type'			=> 'select',
+					'options'		=>	array( 
+											'inside_content' => __('Select menu', 'fruitful'), 
+											'full_width' => __('Button menu', 'fruitful')
+										),
+					'default'		=> 'inside_content'
+				),	
+				array(
+					'id' 			=> 'menu_icon_color',
+					'label'			=> __( 'Menu icon color' , 'fruitful' ),
+					'info'			=> __( 'Chose color for collapsing menu icon', 'fruitful' ),						
+					'type'			=> 'color',
+					'default'		=> '#333333',
+				),				
+				array(
+					'label'			=> __( 'Background for header' , 'fruitful' ),
+					'info'			=> __( 'Upload image with full width for background in header area. (Supported files .png, .jpg, .gif)', 'fruitful' ),			
+					'fields'		=>  array (	
+						array(
+						'id' 			=> 'header_img',
+						'type'			=> 'image',
+						'imagetype'		=> 'headerbackground',
+						),
+						array(
+						'id' 			=> 'header_bg_color',
+						'type'			=> 'color',
+						'default'		=> '#ffffff',
+						'box-title'		=> __('Header background-color', 'fruitful')
+						)					
+					)
+				),
+				array(
+					'id' 			=> 'header_img_size',
+					'label'			=> __( 'Background image size' , 'fruitful' ),
+					'info'  		=> __( 'Choose size for background image - full width or only for content area.', 'fruitful' ),			
+					'type'			=> 'select',
+					'options'		=>	array( 
+											'full' => __('Full width position', 'fruitful'), 
+											'centered' => __('Centered position', 'fruitful')
+										),
+					'default'		=> 'full'
+				),				
+				array(
+					'id' 			=> 'header_height',
+					'label'			=> __( 'Height for header area' , 'fruitful' ),
+					'info'			=> __( 'Minimum height in pixels', 'fruitful' ),
+					'type'			=> 'text',
+					'default'		=> '80',
+				),		
+			)
+		);
+	return $sections;
+}
+add_filter('settings_fields', 'child_options');
+
+function themeslug_option_defaults($output) {
+	$output['is_fixed_header'] = 'off';
+		return $output;
+	}
+add_filter('themeslug_option_defaults', 'themeslug_option_defaults');
+
+
 	

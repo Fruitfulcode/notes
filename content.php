@@ -37,7 +37,7 @@
 				<h1 class="entry-title single-post"><?php the_title();} ?></h1>
 				<?php else : {echo ('<div class="right-block-content-post">'); ?>
 					<p class="entry-title">
-					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title();} ?></a>
+					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'notes' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title();} ?></a>
 				</p>
 				<?php endif; // is_single() ?>
 				<?php } 
@@ -48,7 +48,7 @@
 				<h1 class="entry-title single-post"><?php the_title();} ?></h1>
 				<?php else : {echo ('<div class="right-block-content-post" style="width: 100%; max-width: 100%">'); ?>
 					<p class="entry-title">
-					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title();} ?></a>
+					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'notes' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title();} ?></a>
 				</p>
 				<div class="entry-comment-img" style="width: 100%">
 					<p class="the_date"><?php dateToRussian(the_date('d F', '<span>', '</span>', false)); ?></p>
@@ -58,7 +58,7 @@
 		
 			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
 			<div class="featured-post">
-				<?php _e( 'Featured post', 'twentytwelve' ); ?>
+				<?php _e( 'Featured post', 'notes' ); ?>
 			</div>
 	<?php endif; } ?>
 
@@ -70,7 +70,7 @@
 			<?php else : ?>
 			<div class="entry-content">
 				<?php if ( is_single() ) : the_content(); else : the_excerpt(); endif;  ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
+				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'notes' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 			<?php endif; ?>
 			
