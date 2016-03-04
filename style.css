@@ -160,6 +160,10 @@ h1.entry-title.single-post {
 	padding: 0 0 10px 0;
 }
 
+#searchform:after {
+	content: none;
+}
+
 .post .type-post {
 	border: 1px solid #e9e9e9;
 	display: inline-block;
@@ -290,9 +294,8 @@ button, input, textarea {
 	text-decoration: none;
 }
 
-article.type-post.post {
+article.type-post.post, article.type-page.page {
 	display: inline-block;
-	/*background-color: #fbfbfb;*/
 	padding: 3%;
 }
 
@@ -376,13 +379,17 @@ div.entry-comment-img p.the_date {
 	font-style: italic;
 }
 
-.site-content .post {
+.site-content .post, .site-content .page {
 	margin-bottom: 15px;
     display: inline-block;
 	border: 1px solid #e9e9e9;
 	padding: 20px;
 	width: calc(100% - 42px);
   }
+  
+.right-block-content-post .entry-title {
+    font-size: 20px;
+}
   
 #page .container #secondary .widget ul li.cat-item {
 	float: left;
